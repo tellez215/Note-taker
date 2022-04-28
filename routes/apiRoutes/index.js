@@ -1,5 +1,6 @@
 const routes = require('express').Router();
 const fs = require('fs')
+const uuid = require('../../id')
 
 // GET method to request data from the saved notes
 routes.get('/notes', (req, res) => {
@@ -16,7 +17,7 @@ routes.post('/notes', (req, res) => {
     const newNote = {
         title: req.body.title,
         text: req.body.text,
-        // id: uuidv4()
+        id: uuid()
     }
 
     // since its an array , I used the PUSH method to push newNote into the db.json file
