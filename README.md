@@ -11,6 +11,17 @@ Note-taker is an application where users can add a note title and a note text. T
 
 ## Visuals
 
+![contact](./img/1.png)
+<p> - Welcome page 
+
+![contact](./img/2.png)
+<p> - Users add their notes within the text section
+
+![contact](./img/4.png)
+<p> - Example of added notes
+
+![contact](./img/3.png)
+<p> - json file where notes are saved
 
 ## <em> License
 [MIT](./license.md)

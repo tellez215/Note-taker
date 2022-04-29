@@ -1,6 +1,6 @@
 const routes = require('express').Router();
 const fs = require('fs')
-const { uuid } = require('uuidv4')
+const uuid = require('uuidv4')
 
 // GET method to request data from the saved notes
 routes.get('/notes', (req, res) => {
