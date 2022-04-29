@@ -11,5 +11,6 @@ Note-taker is an application where users can add a note title and a note text. T
 
 ## Visuals
 
+
 ## <em> License
 [MIT](./license.md)
