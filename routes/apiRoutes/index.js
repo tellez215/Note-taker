@@ -29,6 +29,4 @@ routes.post('/notes', (req, res) => {
 // routes.delete('/notes/:id', (req, res) => {
 
 
-// });
-
 module.exports = routes;
