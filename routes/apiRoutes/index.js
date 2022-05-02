@@ -1,6 +1,6 @@
 const routes = require('express').Router();
 const fs = require('fs')
-const uuid = require('uuidv4')
+const { v4: uuidv4 } = require('uuid')
 
 // GET method to request data from the saved notes
 routes.get('/notes', (req, res) => {
@@ -17,7 +17,7 @@ routes.post('/notes', (req, res) => {
     const newNote = {
             title: req.body.title,
             text: req.body.text,
-            id: uuid()
+            id: uuidv4()
         }
         // since its an array , I used the PUSH method to push newNote into the db.json file
     pareDb.push(newNote);
@@ -26,7 +26,21 @@ routes.post('/notes', (req, res) => {
 })
 
 
-// routes.delete('/notes/:id', (req, res) => {
+routes.delete('/notes/:id', (req, res) => {
+    const db = fs.readFileSync('db/db.json')
+    const pareDb = JSON.parse(db)
+        //  const tempArray = []
+        // for (let i = 0; i < pareDb.length; i++) {
+        //     const note = pareDb[i];
+        //     if (note.id !== req.params.id) {
+        //         tempArray.push(note)
+        //     }
+        // }
 
+    const filterNotes = pareDb.filter(note => note.id !== req.params.id)
+    fs.writeFileSync('db/db.json', JSON.stringify(filterNotes))
+    res.json(filterNotes)
+
+})
 
 module.exports = routes;
